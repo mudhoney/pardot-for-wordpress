@@ -273,6 +273,7 @@ HTML;
 			'campaign' 	=> __( 'Campaign (for Tracking Code)', 'pardot' ),
 			'version' 	=> __( 'API Version', 'pardot' ),
 			'https' 	=> __( 'Use HTTPS?', 'pardot' ),
+			'https_proxy' 	=> __( 'HTTPS proxy ?', 'pardot' ),
 			'submit'	=> '',
 			'clearcache'=> '',
 			'reset'	 	=> '',
@@ -729,6 +730,22 @@ HTML;
 		$html_name = $this->_get_html_name( 'https' );
 		$html =<<<HTML
 <input type="checkbox" id="https" name="{$html_name}" {$https} />
+HTML;
+		echo $html;
+	}
+
+	/**
+	 * Displays the HTTPS proxy domain
+	 *
+	 * @since 1.4
+	 */
+	function https_proxy_field() {
+		$https_proxy = self::get_setting( 'https_proxy' );
+		$html_name = $this->_get_html_name( 'https_proxy' );
+$html =<<<HTML
+<div id="https_proxy-wrap">
+	<input type="text" size="30" id="https_proxy" name="{$html_name}" value="{$https_proxy}" />
+</div>
 HTML;
 		echo $html;
 	}
